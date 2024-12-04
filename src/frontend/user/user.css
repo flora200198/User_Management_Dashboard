@@ -1,0 +1,72 @@
+.table-wrapper{
+    display: block;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-collapse: collapse;
+    flex-direction: column;
+    table-layout: auto;
+    box-shadow: 0, 10px,10px #ccc;
+    border-radius: 10px;
+    white-space: nowrap;
+    width: 100em;
+    max-width: 80%;
+    margin: auto;
+    overflow-x: auto;
+}
+.table-add{
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.table-add input{
+   padding: 5px;
+   border-radius:5px;
+   justify-content: space-between;
+}
+.table-add button{
+    padding: 5px;
+    border-radius:5px;
+    justify-content: space-between;
+    background-color: lightseagreen ;
+    cursor: pointer;
+
+ }
+.table thead{
+    background-color: #ccc;
+    color: #222;
+
+}
+.table th, .table td{
+    padding: 0.8rem;
+}
+.table td{
+    border-top: 0.5px solid #ddd;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.table tbody tr:hover{
+    background-color: #eee;
+}
+.actions{
+    display: flex;
+    justify-content: space-around;
+    
+}
+.actions svg{
+    cursor: pointer;
+}
+.delete{
+    color: #e10d05;
+    cursor: pointer;
+    border-radius:  5px;
+    border-color:white solid ;
+}
+.edit{
+    color: blue;
+    border-radius:  5px;
+    border-color:white solid ;
+    cursor: pointer;
+}
