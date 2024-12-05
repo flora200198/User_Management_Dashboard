@@ -16,7 +16,8 @@ const UserTable = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("https://jsonplaceholder.typicode.com/users");
+        const response = await axios.get("http://localhost:5000/users");
+        console.log(response);
         setUser(response.data);
       } catch (error) {
         setError("Failed to fetch users. Please check your backend server.");
@@ -31,7 +32,7 @@ const UserTable = () => {
     const id = user.length > 0 ? user[user.length - 1].id + 1 : 1;
 
     try {
-      const response = await axios.post("https://jsonplaceholder.typicode.com/users", {
+      const response = await axios.post("http://localhost:5000/users", {
         id,
         name,
         email,
@@ -48,7 +49,7 @@ const UserTable = () => {
 
   const handleUpdate = async () => {
     try {
-      const response = await axios.put(`https://jsonplaceholder.typicode.com/users/${editId}`, {
+      const response = await axios.put(`http://localhost:5000/users/${editId}`, {
         id: editId,
         name: uname,
         email: uemail,
@@ -82,8 +83,8 @@ const UserTable = () => {
 
   const handldelete = async (id) => {
     try {
-      await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
-      setUser(user.filter((u) => u.id !== id)); // Remove user from local state
+      await axios.delete(`http://localhost:5000/users/${id}`);
+      setUser(user.filter((u) => u.id !== id)); 
     } catch (err) {
       console.error(err);
     }
@@ -98,18 +99,21 @@ const UserTable = () => {
             placeholder="Enter your name"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            required
           />
           <input
             type="email"
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
           <input
             type="text"
             placeholder="Enter your company"
             value={company}
             onChange={(e) => setCompany(e.target.value)}
+            required
           />
           <button type="submit">Add</button>
         </form>
