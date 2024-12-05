@@ -16,7 +16,7 @@ const UserTable = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/users");
+        const response = await axios.get("https://jsonplaceholder.typicode.com/users");
         console.log(response);
         setUser(response.data);
       } catch (error) {
@@ -32,7 +32,7 @@ const UserTable = () => {
     const id = user.length > 0 ? user[user.length - 1].id + 1 : 1;
 
     try {
-      const response = await axios.post("http://localhost:5000/users", {
+      const response = await axios.post("https://jsonplaceholder.typicode.com/users", {
         id,
         name,
         email,
@@ -49,7 +49,7 @@ const UserTable = () => {
 
   const handleUpdate = async () => {
     try {
-      const response = await axios.put(`http://localhost:5000/users/${editId}`, {
+      const response = await axios.put(`https://jsonplaceholder.typicode.com/${editId}`, {
         id: editId,
         name: uname,
         email: uemail,
@@ -83,7 +83,7 @@ const UserTable = () => {
 
   const handldelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/users/${id}`);
+      await axios.delete(`https://jsonplaceholder.typicode.com/${id}`);
       setUser(user.filter((u) => u.id !== id)); 
     } catch (err) {
       console.error(err);
@@ -92,7 +92,7 @@ const UserTable = () => {
 
   return (
     <div className="table-wrapper">
-      <div className="table">
+      <div className="table-add">
         <form onSubmit={handleSubmit}>
           <input
             type="text"
